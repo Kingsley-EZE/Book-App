@@ -21,8 +21,8 @@ class BooksRemoteDataSourceImpl implements BooksRemoteDataSource {
     final response = await client.get(
       Uri.parse('https://hapi-books.p.rapidapi.com/nominees/romance/2020'),
       headers: {
-        'X-RapidAPI-Key': '4d6bc05d7bmsh6e98c596ae5a100p1c9805jsn97f88b8a8858',
-        'X-RapidAPI-Host': 'hapi-books.p.rapidapi.com'
+        'X-RapidAPI-Key': 'PASS IN YOUR API KEY HERE',
+        'X-RapidAPI-Host': 'PASS IN YOUR HOST URL HERE'
       }
     );
     if(response.statusCode == 200){
