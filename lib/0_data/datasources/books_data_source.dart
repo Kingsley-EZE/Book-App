@@ -28,7 +28,6 @@ class BooksRemoteDataSourceImpl implements BooksRemoteDataSource {
       for(var book in jsonData){
         books.add(BookModel.fromJson(book));
       }
-
       return books;
     }else{
       throw ServerException();
