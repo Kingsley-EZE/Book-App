@@ -5,9 +5,6 @@ import 'package:book_app/0_data/models/book_model.dart';
 import '../exceptions/exception.dart';
 
 abstract class BooksRemoteDataSource {
-  ///request a list of books from api
-  ///returns a List of [BookModel] if successful
-
   Future<List<BookModel>> fetchBooksListFromApi();
 }
 
@@ -28,13 +25,10 @@ class BooksRemoteDataSourceImpl implements BooksRemoteDataSource {
     if(response.statusCode == 200){
       final jsonData = jsonDecode(response.body);
 
-      //debugPrint('RESPONSE-BODY: $jsonData');
       for(var book in jsonData){
         books.add(BookModel.fromJson(book));
       }
-    /*  books.forEach((element) {
-        print('${element.bookId} | ${element.bookTitle} | ${element.bookAuthor}\n');
-      });*/
+
       return books;
     }else{
       throw ServerException();
