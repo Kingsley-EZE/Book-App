@@ -14,7 +14,6 @@ class BooksRemoteDataSourceImpl implements BooksRemoteDataSource {
 
   @override
   Future<List<BookModel>> fetchBooksListFromApi() async{
-    List<BookModel> books = [];
     final response = await client.get(
       Uri.parse('https://hapi-books.p.rapidapi.com/nominees/romance/2020'),
       headers: {
@@ -22,6 +21,7 @@ class BooksRemoteDataSourceImpl implements BooksRemoteDataSource {
         'X-RapidAPI-Host': 'PASS IN YOUR HOST URL HERE'
       }
     );
+    List<BookModel> books = [];
     if(response.statusCode == 200){
       final jsonData = jsonDecode(response.body);
 
