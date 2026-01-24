@@ -21,7 +21,7 @@ class BooksBloc extends Bloc<BooksEvent, BooksState> {
       emit(BooksLoadingState());
       final failureOrBooks = await booksUseCases.fetchBookList();
       failureOrBooks.fold(
-        (error) => emit(BooksErrorState(message: _mapFailureToMessage(error: error))),
+        (error) => emit(BooksErrorState(message: _mapFailureToMessage(error))),
         (books) => emit(BooksLoadedState(bookEntity: books)),
       );
     });
